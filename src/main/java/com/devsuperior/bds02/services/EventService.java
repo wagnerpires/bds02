@@ -24,7 +24,11 @@ public class EventService {
 		try {
 
 			Event entity = eventRepository.getOne(id);
-			copyDtoToEntity(dto, entity);
+
+			entity.setName(dto.getName());
+			entity.setUrl(dto.getUrl());
+			entity.setDate(dto.getDate());
+			entity.setCity(new City(dto.getCityId(), null));
 
 			entity = eventRepository.save(entity);
 
@@ -36,13 +40,4 @@ public class EventService {
 		}
 	}
 
-	private void copyDtoToEntity(EventDTO dto, Event entity) {
-
-		entity.setName(dto.getName());
-		entity.setUrl(dto.getUrl());
-		entity.setDate(dto.getDate());
-
-		entity.setCity(new City(dto.getCityId(), null));
-
-	}
 }
