@@ -11,13 +11,13 @@ import com.devsuperior.bds02.dto.EventDTO;
 import com.devsuperior.bds02.services.EventService;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping(value = "/events")
 public class EventController {
 
     @Autowired
     private EventService eventService;
 
-    @PutMapping("/{id}")
+    @PutMapping(value = "/{id}")
     public EventDTO update (@PathVariable Long id, @RequestBody EventDTO dto) {
         return eventService.update(id, dto);
     }

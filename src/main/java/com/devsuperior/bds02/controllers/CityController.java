@@ -26,7 +26,7 @@ public class CityController {
         return cityService.findAll();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete (@PathVariable Long id) {
         cityService.deleteById(id);
